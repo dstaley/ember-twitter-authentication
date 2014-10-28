@@ -1,0 +1,11 @@
+{{#if firebaseAuthService.currentUser}}
+	<h2>@{{firebaseAuthService.currentUser.twitter.username}}</h2>
+	<p><img {{bind-attr src=firebaseAuthService.currentUser.twitter.cachedUserProfile.profile_image_url_https}} /></p>
+	{{#if firebaseAuthService.currentUser.twitter.cachedUserProfile.status}}
+		<h3>Latest Tweet</h3>
+		<p>{{firebaseAuthService.currentUser.twitter.cachedUserProfile.status.text}}</p>
+	{{/if}}
+	<p><button {{action 'logout'}}>Logout</button></p>
+{{else}}
+	<p><button {{action 'login'}}>Login with Twitter</button></p>
+{{/if}}
