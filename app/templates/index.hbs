@@ -1,9 +1,0 @@
-{{#if firebaseAuthService.waitingForUser}}
-<h2>Loading...</h2>
-{{else}}
-	{{#if firebaseAuthService.currentUser}}
-		{{#link-to 'protected'}}Protected Route{{/link-to}}
-	{{else}}
-		<p><button {{action 'login'}}>Login with Twitter</button></p>
-	{{/if}}
-{{/if}}
